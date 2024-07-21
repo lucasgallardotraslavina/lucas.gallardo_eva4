@@ -39,7 +39,8 @@ export const obtenerComponentesid = async(key:string)=>{
             gabinete:docSnap.data().gabinete,
             ram:docSnap.data().ram,
             grafica:docSnap.data().grafica,
-            almacenamiento:docSnap.data().almacenamiento
+            almacenamiento:docSnap.data().almacenamiento,
+            key: docSnap.id
         }
         return componentes
     }else{

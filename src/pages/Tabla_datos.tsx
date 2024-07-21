@@ -47,7 +47,7 @@ const tabla_datos = () => {
                             <td>{p.grafica}</td>
                             <td>{p.almacenamiento}</td>
                             <td>
-                                <Link href={{pathname:"Pagina5",query:{key:p.key}}}>
+                                <Link href={{pathname:"Modificar_componentes",query:{key:p.key}}}>
                                         <button ><CiEdit /></button>
                                 </Link>
                                         <button ><FaDeleteLeft /></button>
