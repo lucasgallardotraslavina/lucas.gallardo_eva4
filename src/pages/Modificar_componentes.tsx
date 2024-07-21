@@ -1,26 +1,41 @@
-import { initialStateComponentes } from "@/EstadoInicial/Componentes"
-import { registrarComponentes } from "@/Firebase/promesas"
-import { componentes } from "@/Interfaces/Interfaces"
-import React, { useState } from 'react'
-import { Button } from "react-bootstrap"
-import  Form from 'react-bootstrap/Form'
+import { initialStateComponentes } from '@/EstadoInicial/Componentes'
+import { modificarcomponentes, obtenerComponentes, obtenerComponentesid } from '@/Firebase/promesas'
+import { componentes } from '@/Interfaces/Interfaces'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { Button, Form } from 'react-bootstrap'
 
-const registrarcomponentes = () => {
+const Modificar_componentes = () => {
     const [componentes,setComponentes] = useState<componentes>(initialStateComponentes)
     const handleComponentes = (name:string,value:string)=>{
         setComponentes({...componentes,[name]:value})
     }
-    const handleRegistrar = ()=>{
-        registrarComponentes(componentes).then(()=>{
-            alert("Se registro con exito!")
-        }).catch((e)=>{
-            alert("Algo ocurrio")
-            console.log(e)
-        })
-    }
-  return (
+    const router = useRouter()
+    useEffect(()=>{
+        const key = router.query.key;
+        if(typeof key == "string"){
+            obtenerComponentesid(key).then((p)=>{
+                if(p!=undefined){
+                    setComponentes(p)
+                }else{
+
+                }
+            })
+        }else{
+
+        }
+        },[])
+const hanldeModificar = ()=>{
+    modificarcomponentes(componentes).then(()=>{
+        alert("se modificao con exito")
+    }).catch((e)=>{
+        alert("algo ocurrio")
+    })
+}
+  
+    return (
     <>
-    {/* placa */}
+      {/* placa */}
       <Form.Group>
       <Form.Label> placa: </Form.Label>
                 <Form.Control type="text" placeholder="Ingrese placa"
@@ -78,10 +93,9 @@ const registrarcomponentes = () => {
       </Form.Group>
       
       
-      <Button type="button" onClick={handleRegistrar}>registrarComponentes </Button>
-
+      <Button type="button" onClick={hanldeModificar}>registrarComponentes </Button>
     </>
   )
 }
 
-export default registrarcomponentes
+export default Modificar_componentes
