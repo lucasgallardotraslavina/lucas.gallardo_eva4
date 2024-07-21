@@ -1,10 +1,8 @@
-
 export const firebaseConfig = {
-  apiKey: "AIzaSyBrcPvN48kW42YnwD_uahzzu64gOueDNNQ",
-  authDomain: "computadora-f1d38.firebaseapp.com",
-  projectId: "computadora-f1d38",
-  storageBucket: "computadora-f1d38.appspot.com",
-  messagingSenderId: "284150479763",
-  appId: "1:284150479763:web:17945557cc975baf6a8666",
-  measurementId: "G-QLVJ7RFQLH"
+  apiKey: "AIzaSyAgcmK6Ry6nTnmihq20wS6WicO9vUttkJo",
+  authDomain: "computadoras3.firebaseapp.com",
+  projectId: "computadoras3",
+  storageBucket: "computadoras3.appspot.com",
+  messagingSenderId: "886737509640",
+  appId: "1:886737509640:web:aee001c4a5fbe0f7a820bd"
 };

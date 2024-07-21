@@ -1,9 +1,9 @@
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs,getDoc, updateDoc } from "firebase/firestore"
 import { db } from "./firebase"
-import { Componentes } from "@/Interfaces/Interfaces"
+import { componentes } from "@/Interfaces/Interfaces"
 
 
-export const registrarComponentes = async(componentes:Componentes)=>{
+export const registrarComponentes = async(componentes:componentes)=>{
     try{
     const docRef = await addDoc(collection(db,"componentes"),componentes)
     alert("Registrado con exito");

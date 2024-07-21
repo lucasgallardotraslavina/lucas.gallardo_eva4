@@ -1,10 +1,10 @@
-export interface Componentes{
+export interface componentes{
     placa:string,
     procesador:string,
-    ram:number,
-    almacenamiento:number,
     fuente:string,
     gabinete:string,
+    ram:number,
     grafica:string,
+    almacenamiento:number,
     key?:string
 }

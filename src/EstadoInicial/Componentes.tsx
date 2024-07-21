@@ -1,11 +1,11 @@
-import { Componentes } from "@/Interfaces/Interfaces";
+import { componentes } from "@/Interfaces/Interfaces";
 
-export const initialStateComponentes:Componentes = {
+export const initialStateComponentes:componentes = {
     placa:"",
     procesador:"",
-    ram:0,
-    almacenamiento:0,
     fuente:"",
     gabinete:"",
-    grafica:""
+    ram:0,
+    grafica:"",
+    almacenamiento:0,
 }
