@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 import { componentes } from "@/Interfaces/Interfaces";
 
@@ -61,3 +61,10 @@ export const modificarcomponentes = async(componentes:componentes)=>{
         almacenamiento:componentes.almacenamiento,
     })
 }
+
+
+export const eliminarComponentes = async(key:string)=>{
+    const docRef = doc(db,"componentes", key);
+    await deleteDoc(docRef);
+    alert("se elimino correctamente")
+};

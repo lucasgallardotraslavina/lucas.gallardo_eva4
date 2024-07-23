@@ -1,4 +1,4 @@
-import { obtenerComponentes } from '@/Firebase/promesas'
+import { eliminarComponentes, obtenerComponentes } from '@/Firebase/promesas'
 import { componentes } from '@/Interfaces/Interfaces'
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
@@ -18,7 +18,12 @@ const tabla_datos = () => {
         })
     },[])
 
-
+const handleEliminar = async(key: string) => {
+        await eliminarComponentes(key).then(()=>{
+            confirm("seguro de que elimminar estos componenetes?" )
+        });
+        
+}
 
   return (
     <>
@@ -38,7 +43,7 @@ const tabla_datos = () => {
             {
                 componentes.map((p)=>{
                     return(
-                        <tr>
+                        <tr >
                             <td>{p.placa}</td>
                             <td>{p.procesador}</td>
                             <td>{p.fuente}</td>
@@ -50,7 +55,8 @@ const tabla_datos = () => {
                                 <Link href={{pathname:"Modificar_componentes",query:{key:p.key}}}>
                                         <button ><CiEdit /></button>
                                 </Link>
-                                        <button ><FaDeleteLeft /></button>
+                                <button onClick={() => handleEliminar(p.key)}><FaDeleteLeft /></button>
+                                        
                             </td>
                         </tr>
                     )
