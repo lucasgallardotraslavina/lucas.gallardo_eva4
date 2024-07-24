@@ -10,18 +10,18 @@ const tabla_datos = () => {
     const [componentes, setComponentes] = useState<componentes[]>([])
     useEffect(()=>{
         obtenerComponentes().then((componentes)=>{
-            console.log(componentes)
             setComponentes(componentes)
-        }).catch((e)=>{
+        }).catch(()=>{
             alert("No se logra cargar los datos")
-            console.log(e)
         })
     },[])
 
 const handleEliminar = async(key: string) => {
+    if(confirm("seguro de que elimminar estos componenetes?" )){
         await eliminarComponentes(key).then(()=>{
-            confirm("seguro de que elimminar estos componenetes?" )
-        });
+            obtenerComponentes();
+        })
+    }
         
 }
 

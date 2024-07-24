@@ -3,8 +3,8 @@ export interface componentes {
     procesador: string,
     fuente: string,
     gabinete: string,
-    ram: number,
+    ram: string,
     grafica: string,
-    almacenamiento: number,
+    almacenamiento: string,
     key?: string
 }

@@ -5,7 +5,7 @@ export const initialStateComponentes:componentes = {
     procesador:"",
     fuente:"",
     gabinete:"",
-    ram:0,
+    ram:"",
     grafica:"",
-    almacenamiento:0,
+    almacenamiento:""
 }
